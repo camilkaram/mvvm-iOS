@@ -28,6 +28,13 @@ open class CarCell: UITableViewCell
             {
                 carImageView.sd_setImage(with: url as URL, placeholderImage: UIImage(named: "car-placeholder"), options: [SDWebImageOptions.scaleDownLargeImages,SDWebImageOptions.allowInvalidSSLCertificates], completed: nil)
             }
+            //bind a field in the cell to the viewModel. Whever the value in the viewModel changes the field will be updated
+            carViewModel.rpm.addAndNotify(observer: self, completionHandler: {
+                print("RPM Changed. Calculated Torque for \(carViewModel.titleText) on \(carViewModel.rpmText) is \(carViewModel.torqueText)")
+            })
+            
+            //change the rpm. this can be changed via UI component in each cell.
+            carViewModel.setRpm(rpm: 4000)
         }
     }
 }

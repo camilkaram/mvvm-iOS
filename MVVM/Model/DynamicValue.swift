@@ -6,6 +6,8 @@
 //  Copyright © 2018 Benoit PASQUIER. All rights reserved.
 //
 
+//This class was taken from a template prject for Benoit PASQUIER. It is used to assure the binding between the view and the viewModel data using the observer pattern.
+
 import Foundation
 
 typealias CompletionHandler = (() -> Void)

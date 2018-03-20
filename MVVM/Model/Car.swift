@@ -2,21 +2,21 @@
 //  Car.swift
 //  MVVM
 //
-//  Created by Jure Zove on 01/05/16.
-//  Copyright © 2016 Jure Zove. All rights reserved.
+//  Created by camil karam on 3/20/18.
+//  Copyright © 2018 CamilKaram. All rights reserved.
 //
 
 import Foundation
 
 class Car {
   var model: String
-  var make: String
+  var manufacturer: String
   var kilowatts: Int
   var photoURL: String
   
-  init(model: String, make: String, kilowatts: Int, photoURL: String) {
+  init(model: String, manufacturer: String, kilowatts: Int, photoURL: String) {
     self.model = model
-    self.make = make
+    self.manufacturer = manufacturer
     self.kilowatts = kilowatts
     self.photoURL = photoURL
   }

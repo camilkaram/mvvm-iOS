@@ -10,13 +10,14 @@ import Foundation
 class CarViewModel : NSObject {
     private var car: Car
     static let horsepowerPerKilowatt = 1.34102209
+    var rpm = DynamicValue<Double>(0.0)
     
     var modelText: String {
         return car.model
     }
     
     var makeText: String {
-        return car.make
+        return car.manufacturer
     }
     
     var horsepowerText: String {
@@ -24,8 +25,23 @@ class CarViewModel : NSObject {
         return "\(horsepower) HP"
     }
     
+    var rpmText: String {
+        return"\(rpm.value) rpm"
+    }
+    
+    var torqueText: String {
+        if self.rpm.value > 0.0
+        {
+            let horsepower = Int(round(Double(car.kilowatts) * CarViewModel.horsepowerPerKilowatt))
+            let torque = Double(horsepower * 5252) / rpm.value
+            return "\(torque) Nm"
+        }else{
+            return "N/A"
+        }
+    }
+    
     var titleText: String {
-        return "\(car.make) \(car.model)"
+        return "\(car.manufacturer) \(car.model)"
     }
     
     var photoURL: URL? {
@@ -34,5 +50,10 @@ class CarViewModel : NSObject {
     
     init(car: Car) {
         self.car = car
+    }
+    
+    func setRpm(rpm : Double)
+    {
+        self.rpm.value = rpm
     }
 }
