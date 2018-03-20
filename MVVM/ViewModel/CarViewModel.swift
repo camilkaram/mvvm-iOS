@@ -34,7 +34,7 @@ class CarViewModel : NSObject {
         {
             let horsepower = Int(round(Double(car.kilowatts) * CarViewModel.horsepowerPerKilowatt))
             let torque = Double(horsepower * 5252) / rpm.value
-            return "\(torque) Nm"
+            return "\(torque) lb/ft (\(torque * 1.35582) Nm)"
         }else{
             return "N/A"
         }
