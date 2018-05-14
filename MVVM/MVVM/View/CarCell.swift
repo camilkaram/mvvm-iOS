@@ -16,7 +16,7 @@ open class CarCell: UITableViewCell
     @IBOutlet weak var carNameLabel: UILabel!
     @IBOutlet weak var carDescriptionLabel: UILabel!
     
-    var carViewModel : CarViewModel? {
+    var carViewModel : TableViewCellViewModel? {
         didSet {
             
             guard let carViewModel = carViewModel else {

@@ -14,8 +14,8 @@ open class TableViewController: UITableViewController
 {
     let dataSource = CarsDataSource()
     
-    lazy var viewModel : CarsViewModel = {
-        let viewModel = CarsViewModel(dataSource: dataSource)
+    lazy var viewModel : TableViewViewModel = {
+        let viewModel = TableViewViewModel(dataSource: dataSource)
         return viewModel
     }()
     

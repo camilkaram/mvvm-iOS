@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class CarViewModel : NSObject {
+class TableViewCellViewModel : NSObject {
     private var car: Car
     static let horsepowerPerKilowatt = 1.34102209
     var rpm = DynamicValue<Double>(0.0)
@@ -21,7 +21,7 @@ class CarViewModel : NSObject {
     }
     
     var horsepowerText: String {
-        let horsepower = Int(round(Double(car.kilowatts) * CarViewModel.horsepowerPerKilowatt))
+        let horsepower = Int(round(Double(car.kilowatts) * TableViewCellRxViewModel.horsepowerPerKilowatt))
         return "\(horsepower) HP"
     }
     
@@ -32,7 +32,7 @@ class CarViewModel : NSObject {
     var torqueText: String {
         if self.rpm.value > 0.0
         {
-            let horsepower = Int(round(Double(car.kilowatts) * CarViewModel.horsepowerPerKilowatt))
+            let horsepower = Int(round(Double(car.kilowatts) * TableViewCellViewModel.horsepowerPerKilowatt))
             let torque = Double(horsepower * 5252) / rpm.value
             return "\(torque) lb/ft (\(torque * 1.35582) Nm)"
         }else{

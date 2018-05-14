@@ -46,7 +46,7 @@ class TableViewCellRxViewModel : NSObject{
         kilowattText = BehaviorSubject(value: String(car.kilowatts))
         kilowattText.map({ (kilowatts) -> String in
             let kw = Int(kilowatts) ?? 0
-            let horsepower = max(Int(round(Double(kw) * CarViewModel.horsepowerPerKilowatt)), 0)
+            let horsepower = max(Int(round(Double(kw) * TableViewCellRxViewModel.horsepowerPerKilowatt)), 0)
             return "\(horsepower) HP"
         }).bind(to: horsepowerText).disposed(by: disposeBag)
         

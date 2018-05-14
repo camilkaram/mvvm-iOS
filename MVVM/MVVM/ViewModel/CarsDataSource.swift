@@ -13,7 +13,7 @@ class GenericDataSource<T> : NSObject {
     var data: DynamicValue<[T]> = DynamicValue([])
 }
 
-class CarsDataSource : GenericDataSource<CarViewModel>, UITableViewDataSource {
+class CarsDataSource : GenericDataSource<TableViewCellViewModel>, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.value.count
